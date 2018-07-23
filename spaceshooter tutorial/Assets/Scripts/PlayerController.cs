@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 	public GameObject shot;
 	public Transform shotSpawn;
 	public float fireRate = 0.5f;
+
 	private float nextFire = 0.0f;
 
 	void Update ()
