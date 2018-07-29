@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class GameController : MonoBehaviour {
     public UnityEngine.UI.Text scoreText;
     public UnityEngine.UI.Text restartText;
     public UnityEngine.UI.Text gameOverText;
+    public GameObject restartButton;
 
     public bool gameOver;
     private bool restart;
@@ -25,7 +27,8 @@ public class GameController : MonoBehaviour {
     {
         gameOver = false;
         restart = false;
-        restartText.text = "";
+        //restartText.text = "";
+        restartButton.SetActive(false);
         gameOverText.text = "";
         score = 0;
         UpdateScore();
@@ -33,18 +36,16 @@ public class GameController : MonoBehaviour {
  
      }
 
-    void Update()
-    {
-        if (restart)
-        {
-            if (Input.GetKeyDown (KeyCode.R))
-            {
-                Application.LoadLevel(Application.loadedLevel);
-            }    
-        }
-            
-
-    }
+    //void Update()
+    //{
+    //    if (restart)
+    //    {
+    //        if (Input.GetKeyDown (KeyCode.R))
+    //        {
+    //            Application.LoadLevel(Application.loadedLevel);
+    //        }    
+    //    }
+    //}
 
     IEnumerator SpawnWaves()
     {
@@ -65,7 +66,9 @@ public class GameController : MonoBehaviour {
 
             if (gameOver) 
             {
-                restartText.text = "Press 'R' for restart";
+                restartButton.SetActive(true);
+
+//              restartText.text = "Press 'R' for restart";
                 restart = true;
                 break;
             }
@@ -88,4 +91,9 @@ public class GameController : MonoBehaviour {
         gameOverText.text = "GAME OVER!";
         gameOver = true;
     }
+
+    public void RestartGame () {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
 }
