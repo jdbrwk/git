@@ -19,18 +19,22 @@ public class PlayerController : MonoBehaviour
 	public GameObject shot;
 	public Transform shotSpawn;
 	public float fireRate = 0.5f;
+    public SimpleTouchPad touchPad;
+    public SimpleTouchAreaButton areaButton;
 
 	private float nextFire = 0.0f;
     private AudioSource audioSource;
+    private Quaternion calibrationQuaternion;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        CalibrateAccellerometer();
     }
 
     void Update ()
 	{
-		if (Input.GetButton("Fire1") && Time.time > nextFire) 
+        if (areaButton.CanFire () && Time.time > nextFire) 
 		{
 			nextFire = Time.time + fireRate;
 		
@@ -40,13 +44,35 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	void FixedUpdate ()
-	{	
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
 
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-		rb.velocity = movement * speed;
+    void CalibrateAccellerometer()
+    {
+        Vector3 accelerationSnapshot = Input.acceleration;
+        Quaternion rotateQuaternion = Quaternion.FromToRotation(new Vector3(0.0f, 0.0f, -1.0f), accelerationSnapshot);
+        calibrationQuaternion = Quaternion.Inverse(rotateQuaternion);
+    }
+
+    Vector3 FixAcceleration(Vector3 acceleration) 
+        {
+            Vector3 fixedAcceleration = calibrationQuaternion * acceleration;
+            return fixedAcceleration;
+        }
+
+
+	void FixedUpdate ()
+	{
+        //		float moveHorizontal = Input.GetAxis ("Horizontal");
+        //		float moveVertical = Input.GetAxis ("Vertical");
+        //      Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+        //      Vector3 accelerationRaw = Input.acceleration;
+        //      Vector3 acceleration = FixAcceleration(accelerationRaw);
+        //      Vector3 movement = new Vector3 (acceleration.x, 0.0f, acceleration.y);
+
+        Vector2 direction = touchPad.GetDirection();
+        Vector3 movement = new Vector3(direction.x, 0.0f, direction.y);
+
+        rb.velocity = movement * speed;
 
 		rb.position = new Vector3 
 		(
@@ -58,5 +84,6 @@ public class PlayerController : MonoBehaviour
 		rb.rotation = Quaternion.Euler (0.0f, 0.0f, rb.velocity.x * -tilt);
 		
 	}
-	
+
+ 
 }
