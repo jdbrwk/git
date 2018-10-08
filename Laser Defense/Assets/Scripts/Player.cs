@@ -107,12 +107,15 @@ public class Player : MonoBehaviour {
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
         if (health <= 0)
-        {
-            Destroy(gameObject);
-            AudioSource.PlayClipAtPoint(playerDeathClip, Camera.main.transform.position, playerDeathClipVolume);
-        }
+            Die();
     }
 
+    private void Die()
+    {
+        FindObjectOfType<Level>().LoadGameOver();
+        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(playerDeathClip, Camera.main.transform.position, playerDeathClipVolume);
+    }
 
     private void SetUpBoundaries()
     {
