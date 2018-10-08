@@ -873,52 +873,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4021628879815074, guid: 8d8c630d8762249b4a79078ad53ba0e1,
     type: 2}
   m_PrefabInternal: {fileID: 702329319}
---- !u!1001 &712476439
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4519834398533640, guid: 6d52aef1a5bd548948112cf3131bb98a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4519834398533640, guid: 6d52aef1a5bd548948112cf3131bb98a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4519834398533640, guid: 6d52aef1a5bd548948112cf3131bb98a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4519834398533640, guid: 6d52aef1a5bd548948112cf3131bb98a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4519834398533640, guid: 6d52aef1a5bd548948112cf3131bb98a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4519834398533640, guid: 6d52aef1a5bd548948112cf3131bb98a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4519834398533640, guid: 6d52aef1a5bd548948112cf3131bb98a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4519834398533640, guid: 6d52aef1a5bd548948112cf3131bb98a, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647899643218686, guid: 6d52aef1a5bd548948112cf3131bb98a, type: 2}
-      propertyPath: m_Name
-      value: Main Camera (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6d52aef1a5bd548948112cf3131bb98a, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1001 &745291440
 Prefab:
   m_ObjectHideFlags: 0
