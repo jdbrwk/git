@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+    [Header("Enemy")]
     [SerializeField] float health = 100;
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 1.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
 
-    [SerializeField] GameObject enemyLaserPrefab;
-    [SerializeField] float enemyProjectileSpeed = 5f;
-
     [SerializeField] GameObject explosionVFXPrefab;
     [SerializeField] float durationOfExplosion = 1f;
 
+    [SerializeField] GameObject hitSparklesVFX;
+    [SerializeField] float durationOfHitSparkles = 1f;
+
     [SerializeField] AudioClip deathClip;
     [SerializeField] [Range(0, 1)] float deathClipVolume = 1f;
+
+    [SerializeField] int scoreValue = 50;
+
+    [Header("Enemy projectile")]
+    [SerializeField] GameObject enemyLaserPrefab;
+    [SerializeField] float enemyProjectileSpeed = 5f;
+
 
     [SerializeField] AudioClip enemyShootingClip;
     [SerializeField] [Range(0, 1)] float enemyShootingClipVolume = 1f;
@@ -26,6 +34,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+
 	}
 	
 	// Update is called once per frame
@@ -58,9 +67,18 @@ public class Enemy : MonoBehaviour {
     private void ExplosionVFX()
     {
         GameObject explosion = Instantiate(
-            explosionVFXPrefab, transform.position, Quaternion.identity);
+    explosionVFXPrefab, transform.position, Quaternion.identity);
         Destroy(explosion, durationOfExplosion);
-        
+
+    }
+
+    private void HitSparklesVFX()
+    {
+
+    
+        GameObject sparklesVFX = Instantiate(
+    hitSparklesVFX, transform.position, Quaternion.identity);
+        Destroy(sparklesVFX, durationOfHitSparkles);
     }
 
     private void PlayDeathSFX()
@@ -72,6 +90,7 @@ public class Enemy : MonoBehaviour {
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer) { return; }
+        HitSparklesVFX();
         ProcessHit(damageDealer);
     }
 
@@ -79,12 +98,16 @@ public class Enemy : MonoBehaviour {
     {
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
+
         if (health <= 0)
         {
             Destroy(gameObject);
             ExplosionVFX();
             PlayDeathSFX();
+            FindObjectOfType<GameSession>().AddScore(scoreValue);
+
         }
     }
 
 }
+

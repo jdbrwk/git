@@ -71,7 +71,10 @@ MonoBehaviour:
   moveSpeed: 10
   padding: 1
   health: 200
-  playerDeathClip: {fileID: 8300000, guid: d3c743b0a2f9041da88c4519f4dfd658, type: 3}
+  playerExplosionVFX: {fileID: 1854123752706976, guid: 723eaafe397d6442fb8a08f396bd69ed,
+    type: 2}
+  durationOfExplosion: 1
+  playerDeathClip: {fileID: 8300000, guid: a35d1977d8e354787a2280ada8212f66, type: 3}
   playerDeathClipVolume: 0.75
   laserPrefab: {fileID: 1842488888464844, guid: edc05f296b96842908b8d72936ccd923,
     type: 2}

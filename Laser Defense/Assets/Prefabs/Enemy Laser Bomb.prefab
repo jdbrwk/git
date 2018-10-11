@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 212821982977080964}
   - component: {fileID: 50285345696635972}
   - component: {fileID: 114177746951248066}
-  - component: {fileID: 70103874856295152}
+  - component: {fileID: 58812436255736104}
+  - component: {fileID: 114222270103313912}
   m_Layer: 11
-  m_Name: Enemy Laser
+  m_Name: Enemy Laser Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1159490680360882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.15, z: 0}
+  m_LocalPosition: {x: 2.7426095, y: -3.9304986, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,8 +64,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &70103874856295152
-CapsuleCollider2D:
+--- !u!58 &58812436255736104
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,9 +76,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.09, y: 0.54}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0.012958527}
+  serializedVersion: 2
+  m_Radius: 0.30520582
 --- !u!114 &114177746951248066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,7 +90,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38c02c7c245b434eb4e6bc383d4e22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 150
+--- !u!114 &114222270103313912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159490680360882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e6e7220cb014f54a336d14ee69fe35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedOfSpin: 360
 --- !u!212 &212821982977080964
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -125,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: -1993560475
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 91b36fc2421844d3da3b9caf0be570a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 980570565434d455783091531741d7a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1

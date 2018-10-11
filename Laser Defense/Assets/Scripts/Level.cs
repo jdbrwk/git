@@ -13,9 +13,7 @@ public class Level : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+
 
     public void LoadGameOver()
     {
@@ -32,6 +30,7 @@ public class Level : MonoBehaviour {
     public void LoadGameScene()
     {
         SceneManager.LoadScene("Main");
+        FindObjectOfType<GameSession>().ResetGame();
     }
 
     public void LoadStartMenu()

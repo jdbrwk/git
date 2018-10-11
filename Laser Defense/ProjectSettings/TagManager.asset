@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Projectile
+    uniqueID: 2301406821
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Hit Sparks
+    uniqueID: 4291074895
     locked: 0

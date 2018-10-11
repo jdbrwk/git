@@ -106,14 +106,18 @@ MonoBehaviour:
   shotCounter: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
-  enemyLaserPrefab: {fileID: 1159490680360882, guid: 89dc791c02d4941dd968e6450d39dcbb,
-    type: 2}
-  enemyProjectileSpeed: 5
   explosionVFXPrefab: {fileID: 1854123752706976, guid: 3995d21fcb9274223aeb446b156763ba,
     type: 2}
   durationOfExplosion: 1
+  hitSparklesVFX: {fileID: 1854123752706976, guid: 885c6aa5caf654fb9963d0fef0cce92a,
+    type: 2}
+  durationOfHitSparkles: 2
   deathClip: {fileID: 8300000, guid: d3c743b0a2f9041da88c4519f4dfd658, type: 3}
   deathClipVolume: 1
+  scoreValue: 50
+  enemyLaserPrefab: {fileID: 1159490680360882, guid: 89dc791c02d4941dd968e6450d39dcbb,
+    type: 2}
+  enemyProjectileSpeed: 5
   enemyShootingClip: {fileID: 8300000, guid: 52dea9933826f41f98ef68583c525e5d, type: 3}
   enemyShootingClipVolume: 0.45
 --- !u!114 &114762995611624854
@@ -128,6 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 200
+  hitSparklesVFX: {fileID: 0}
+  durationOfHitSparkles: 1
 --- !u!212 &212665011454675088
 SpriteRenderer:
   m_ObjectHideFlags: 1
