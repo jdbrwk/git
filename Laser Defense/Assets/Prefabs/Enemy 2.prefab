@@ -111,7 +111,7 @@ MonoBehaviour:
   durationOfExplosion: 1
   hitSparklesVFX: {fileID: 1854123752706976, guid: 885c6aa5caf654fb9963d0fef0cce92a,
     type: 2}
-  durationOfHitSparkles: 1
+  durationOfHitSparkles: 0.3
   deathClip: {fileID: 8300000, guid: d3c743b0a2f9041da88c4519f4dfd658, type: 3}
   deathClipVolume: 1
   scoreValue: 75
@@ -132,8 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 200
-  hitSparklesVFX: {fileID: 0}
-  durationOfHitSparkles: 1
 --- !u!212 &212665011454675088
 SpriteRenderer:
   m_ObjectHideFlags: 1
